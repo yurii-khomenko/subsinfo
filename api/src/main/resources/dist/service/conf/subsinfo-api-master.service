@@ -1,0 +1,24 @@
+[Unit]
+Description=subsinfo-api module
+Requires=network.target remote-fs.target
+After=network.target remote-fs.target
+
+[Service]
+Type=simple
+User=devel
+
+Environment="JAVA_OPTS=-Xms2g -Xmx2g -Dprofiles.active=prod"
+
+WorkingDirectory=/store/subsinfo/subsinfo/subsinfo-api
+ExecStart=/store/subsinfo/subsinfo/subsinfo-api/bin/subsinfo-api
+
+Restart=always
+StartLimitInterval=180
+RestartSec=30
+TimeoutStopSec=30
+
+SendSIGKILL=no
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

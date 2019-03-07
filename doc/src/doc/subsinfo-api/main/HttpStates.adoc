@@ -1,0 +1,55 @@
+== General
+
+=== HTTP verbs
+Email2SMS System tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP verbs.
+
+[cols="25,75"]
+|===
+|Verb|Usage
+
+|`GET`
+|Used to retrieve data from a specified resource.
+
+|`POST`
+|Used to create resource.
+
+|`PATCH`
+|Used to update specified resource.
+
+|===
+
+=== HTTP status codes
+Email2SMS System tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP status codes.
+
+[cols="25,75"]
+|===
+|Status code|Usage
+
+|`200 OK`
+|Standard response for successful HTTP requests.
+
+|`200 NO Content`
+|Standard response for successful HTTP requests without body.
+
+|`400 Bad Request`
+|The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+
+|`401 Unauthorized`
+|Is used when authentication is required and has failed or has not yet been provided.
+
+|`403 Forbidden`
+|The request was valid, but the server is refusing action.
+ The user might not have the necessary permissions for a resource,
+ or may need an account of some sort.
+
+|`404 Not Found`
+|Server could not find requested resource.
+
+|`422 Unprocessable Entity`
+|Server can not process the entity.
+
+|`500 Internal Error`
+|General server error.
+|===

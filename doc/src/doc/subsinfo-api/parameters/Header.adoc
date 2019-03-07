@@ -1,0 +1,19 @@
+== Parameters definition
+
+=== Header
+
+Header is *mandatory* and has to contain 1 parameter:
+
+* Authorization
+
+==== Authentication and authorization
+
+Client Authentication is handled by the server using link:https://en.wikipedia.org/wiki/Basic_access_authentication[HTTP Basic Authentication]
+where the client's username and password are concatenated in the form `<username>:<password>`, encoded using *base64*.
+
+External system should send its login and password in HTTP header as follows:
+----
+Authorization: Basic dm9yZGVsOnZvcmRlbA==
+----
+
+<<<

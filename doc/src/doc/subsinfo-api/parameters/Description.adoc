@@ -1,0 +1,82 @@
+=== Parameters description
+
+==== cid
+.Definition
+Parameter that defines unique request id.
+
+.Features
+. Parameter has no default value.
+
+==== msisdn
+.Definition
+Parameter that defines subscriber's MSISDN (phone number).
+
+.Features
+. Parameter requiredness depends on request type:
+ * for POST request parameter is required;
+ * for PATH request parameter is not required.
+. Parameter has no default value.
+
+==== enable
+.Definition
+Parameter that defines subscriber profile activity.
+
+.Features
+. Parameter is not required.
+. Parameter has default value:
+ * for POST request default value is true.
+
+==== countSms
+.Definition
+Parameter that defines amount of SMS sent during current month.
+
+.Features
+. Parameter has default value 0.
+
+==== countMms
+.Definition
+Parameter that defines amount of MMS sent during current month.
+
+.Features
+. Parameter has default value 0.
+
+==== smsLimit
+.Definition
+Parameter that defines limit of sms per month.
+
+.Features
+. Parameter is not required.
+. Parameter has default value:
+ * for POST request default value 150.
+
+==== mmsLimit
+.Definition
+Parameter that defines limit of mms per month.
+
+.Features
+. Parameter is not required.
+. Parameter has default value:
+ * for POST request default value 150.
+
+==== resource
+.Definition
+Object that presents subscriber's profile.
+
+.Features
+. Parameter has no default value.
+
+==== errorId
+.Definition
+Parameter that defines error identifier.
+
+.Features
+. Parameter values are provided in <<Error information>>.
+
+==== errorMsg
+.Definition
+Parameter that defines error message.
+
+.Features
+. Parameter values are provided in <<Error information>>.
+
+<<<

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+group=subsinfo
+system=subsinfo
+module=api
+
+service=${system}-${module}
+conf=/store/${group}/${system}/${service}/service/conf
+systemdDir=/etc/systemd/system/app
+
+sudo systemctl stop app-${service}.service
+sudo systemctl disable app-${service}.service
+cp -rf ${conf}/${service}-${1}.service ${systemdDir}/app-${service}.service &&
+sudo systemctl enable ${systemdDir}/app-${service}.service &&
+sudo systemctl start app-${service} &&
+sudo systemctl status app-${service}
