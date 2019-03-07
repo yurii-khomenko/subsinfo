@@ -9,4 +9,4 @@ Results:
 - REST interface for clients;
 - responsive, resilient, elastic and message driven solution.
 
-This service deployed on 2VMs(4cores Xeon e5 2699 per VM, 8GB RAM, 200GB HDD) and has 1 application and 1 DB per node. It stores 150 000 000 profiles in Cassandra and consumes 6,9 GB of disk space. The service handle 48000 HTTP requests per second. It easy to vertical scaling because it uses fully asynchronous model of computing. It easy to horizontal scaling because builds as independent nodes around Cassandra DB. When I design that platform I was inspired The Reactive Manifesto.
+This service deployed on 2VMs(4cores Xeon e5 2699 per VM, 8GB RAM, 200GB HDD) and has 1 application and 1 DB per node. It stores 150 000 000 profiles in Cassandra and consumes 6,9 GB of disk space. The service handle 48000 HTTP requests per second. It easy to vertical scaling because it uses fully asynchronous model of computing. It easy to horizontal scaling because builds as independent nodes around Cassandra DB. When I design that platform I was inspired The Reactive Manifesto.
