@@ -19,31 +19,20 @@ trait SubscriberRepo extends DB {
 
     val promise = Promise[Option[Subscriber]]()
 
-
-    //    val version = Futures.transform(result, new com.google.common.base.Function[ResultSet, String] {
-    //      def apply(rs: ResultSet): String = rs.one.getString("release_version")
-    //    })
-
     Futures.addCallback(result, new FutureCallback[Result[Subscriber]]() {
 
       override def onSuccess(result: Result[Subscriber]) = {
 
         val subscriber = Option(result.one)
 
-        if (subscriber.nonEmpty) {
-          // log.info("[{}] OK, get MO successfully, duration: {} ms", cdrId, getDuration(timer))
+        if (subscriber.nonEmpty)
           promise.success(subscriber)
-        } else {
-          //          log.info("[{}] WARN, MO not found in DB, duration: {} ms", cdrId, getDuration(timer))
+          else
           promise.success(subscriber)
-        }
       }
 
-      override def onFailure(t: Throwable) = {
-        //        log.error("[{}] FAIL, get MO unsuccessfully, duration: {} ms, ex: {}", cdrId, getDuration(timer), mkString(t))
-
+      override def onFailure(t: Throwable) =
         promise.failure(t)
-      }
     }, ForkJoinPool.commonPool)
 
     promise.future
@@ -56,17 +45,11 @@ trait SubscriberRepo extends DB {
 
     Futures.addCallback(subscriberMapper.saveAsync(subscriber), new FutureCallback[Void]() {
 
-      override def onSuccess(result: Void) = {
-
-          // log.info("[{}] OK, get MO successfully, duration: {} ms", cdrId, getDuration(timer))
+      override def onSuccess(result: Void) =
         promise.success(null)
-      }
 
-      override def onFailure(t: Throwable) = {
-        //        log.error("[{}] FAIL, get MO unsuccessfully, duration: {} ms, ex: {}", cdrId, getDuration(timer), mkString(t))
-
+      override def onFailure(t: Throwable) =
         promise.failure(t)
-      }
     }, ForkJoinPool.commonPool)
 
     promise.future

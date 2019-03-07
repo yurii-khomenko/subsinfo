@@ -78,8 +78,7 @@ trait Responses extends Directives with JsonSupport {
         s"<LANG>${langTypeToLangStr.getOrElse(subscriber.languageType, "")}</LANG>" +
         s"\n</GET_SUBS_INFO>\n</SELFCARE>"
 
-//    log.info(s"[$cid] OK, request processed successfully, http code: ${OK.intValue}, body: $body")
-//    metric ! IncCdrsOk
+    log.info(s"[$cid] OK, request processed successfully, http code: ${OK.intValue}, body: $body")
 
     complete(OK, List(`Content-Type`(ContentTypes.`text/xml(UTF-8)`)), body)
   }
@@ -94,8 +93,7 @@ trait Responses extends Directives with JsonSupport {
         s"</ERROR>" +
         s"\n</GET_SUBS_INFO>\n</SELFCARE>"
 
-//    log.info(s"[$cid] OK, request processed successfully, http code: ${OK.intValue}, body: $body")
-//    metric ! IncCdrsOk
+    log.info(s"[$cid] OK, request processed successfully, http code: ${OK.intValue}, body: $body")
 
     complete(OK, List(`Content-Type`(ContentTypes.`text/xml(UTF-8)`)), body)
   }
